@@ -3,11 +3,13 @@
 angular.module('angularFullStackAllOptionsApp')
   .controller('MainCtrl', function ($scope, $http, socket) {
     $scope.awesomeThings = [];
-
+    $scope.user = {name: "Abhi"};
+    
     $http.get('/api/things').success(function(awesomeThings) {
       $scope.awesomeThings = awesomeThings;
       socket.syncUpdates('thing', $scope.awesomeThings);
     });
+
 
     $scope.addThing = function() {
       if($scope.newThing === '') {
