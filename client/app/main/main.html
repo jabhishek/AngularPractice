@@ -1,9 +1,6 @@
 <div ng-include="'components/navbar/navbar.html'"></div>
 <div class="container">
-  <form name="form" novalidate>
-    <input type="text" name="username" ng-model="user.name" one-to-ten="10" required/>
-    <div ng-if="form.username.$error.required">Please enter a name.</div>
-    <div ng-if="form.username.$error.OneToTen">Name is too long.</div>
-  </form>
+    <label for="username">User Name:</label><input id="username" ng-model="user.name" type="text"/>
+  <div my-link="" my-url="{{user.name}}">Click me!!</div>
 </div>
 </div>
