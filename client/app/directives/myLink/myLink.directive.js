@@ -3,14 +3,41 @@
 angular.module('angularFullStackAllOptionsApp')
   .directive('myLink', function () {
     return {
-      template: '<a href="{{myUrl}}">Click here!!</a>',
+      template: '<a href="{{myUrl}}">{{myLinkText}}</a>',
       restrict: 'A',
       replace: true,
+      controller: function($scope, $element, $attrs, $transclude) {
+        console.log($scope);
+        $scope.log = function(message) {
+            console.log(message);
+        }
+      }
+      ,
       scope: {
+        myLinkText: '@',
         myUrl: '@'
-      },
-      link: function (scope, element, attrs) {
-        console.log(scope);
       }
     };
   });
+
+/*
+  directive('', ['', function(){
+      // Runs during compile
+      return {
+          // name: '',
+          // priority: 1,
+          // terminal: true,
+          // scope: {}, // {} = isolate, true = child, false/undefined = no change
+          // controller: function($scope, $element, $attrs, $transclude) {},
+          // require: 'ngModel', // Array = multiple requires, ? = optional, ^ = check parent elements
+          // restrict: 'A', // E = Element, A = Attribute, C = Class, M = Comment
+          // template: '',
+          // templateUrl: '',
+          // replace: true,
+          // transclude: true,
+          // compile: function(tElement, tAttrs, function transclude(function(scope, cloneLinkingFn){ return function linking(scope, elm, attrs){}})),
+          link: function($scope, iElm, iAttrs, controller) {
+              
+          }
+      };
+  }]);*/
