@@ -3,7 +3,7 @@
 angular.module('angularFullStackAllOptionsApp')
   .directive('myLink', function () {
     return {
-      template: '<a href="{{myUrl}}">{{myLinkText}}</a>',
+      template: '<div><input type="text" ng-model="myUrl" /><a href="{{myUrl}}">{{myLinkText}}</a></div>',
       restrict: 'A',
       replace: true,
       controller: function($scope, $element, $attrs, $transclude) {
@@ -15,7 +15,7 @@ angular.module('angularFullStackAllOptionsApp')
       ,
       scope: {
         myLinkText: '@',
-        myUrl: '@'
+        myUrl: '='
       }
     };
   });
