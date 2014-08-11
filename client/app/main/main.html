@@ -1,7 +1,19 @@
-<div class="container">
-  <label>Their URL field:</label>
+ <div class="container">
+<!--  <label>Their URL field:</label>
   <input type="text" ng-model="theirUrl"/>
+    
   <div my-link my-url="theirUrl" my-link-text="Click me to go to Google">
   </div>
-</div>
-</div>
+</div>-->
+<ul>
+    <li ng-repeat="thing in awesomeThings" ng-class="{even: !$even, odd: !$odd}">
+        {{thing.name}}
+    </li>    
+</ul>
+{{selectedUser.name}}
+<select ng-model="selectedUser" ng-options="user.name group by user.type for user in users">
+    <option value="">Choose User</option>
+</select>
+
+</div> 
+
